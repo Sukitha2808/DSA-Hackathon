@@ -1,0 +1,40 @@
+📌 Problem Statement
+Given a sorted array of integers (which may include negative numbers), return a new array containing the squares of each number, also sorted in non-decreasing order.
+
+🔹 Input
+**An array of integers array
+The array is already sorted in non-decreasing order
+Example Input
+[-5, -4, -2, 1, 9, 12]
+
+🔹 Output
+A new array containing the squares of each element, sorted in non-decreasing order
+Example Output
+[1, 4, 16, 25, 81, 144]
+
+🔹 Constraints (Typical)
+1 ≤ len(array) ≤ 10^5
+-10^4 ≤ array[i] ≤ 10^4
+
+SOLUTION:
+
+# Time = O(n) Space = O(n)
+def sorted_squared(array):
+    i = 0
+    j = len(array) - 1
+    new_array = [0] * len(array)
+    for k in reversed(range(len(array))):
+        sq_i = array[i]**2
+        sq_j = array[j]** 2
+        if sq_i > sq_j:
+            new_array[k] = sq_i
+            i += 1
+        else:
+            new_array[k] = sq_j
+            j -= 1
+    return new_array
+print(sorted_squared([-5,-4,-2, 1, 9,12]))
+
+⏱️ Complexity
+Time: O(n)
+Space: O(n)
